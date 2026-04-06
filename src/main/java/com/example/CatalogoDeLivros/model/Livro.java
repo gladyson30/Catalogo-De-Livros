@@ -1,10 +1,19 @@
 package com.example.CatalogoDeLivros.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Livro {
 
@@ -14,58 +23,8 @@ public class Livro {
     private String titulo;
     private LocalDate dataPublicacao;
     private String descricao;
-    @ManyToOne
+    @ManyToOne()
+    @JsonBackReference
     private Autor autor;
 
-    public Livro(){
-
-    }
-
-    public Livro(UUID id, String titulo, LocalDate dataPublicacao, String descricao, Autor autor) {
-        this.id = id;
-        this.titulo = titulo;
-        this.dataPublicacao = dataPublicacao;
-        this.descricao = descricao;
-        this.autor = autor;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Autor getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Autor autor) {
-        this.autor = autor;
-    }
-
-    public LocalDate getDataPublicacao() {
-        return dataPublicacao;
-    }
-
-    public void setDataPublicacao(LocalDate dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
-    }
 }

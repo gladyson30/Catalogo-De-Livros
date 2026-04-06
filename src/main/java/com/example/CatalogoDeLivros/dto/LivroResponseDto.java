@@ -1,20 +1,17 @@
 package com.example.CatalogoDeLivros.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.UUID;
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Getter
 @Setter
-public class LivroDto {
+@NoArgsConstructor
+public class LivroResponseDto {
     private String titulo;
-    private LocalDate dataPublicacao;
     private String descricao;
-    private UUID id;
-
+    private LocalDate dataPublicacao;
+    private String nomeAutor;
 }

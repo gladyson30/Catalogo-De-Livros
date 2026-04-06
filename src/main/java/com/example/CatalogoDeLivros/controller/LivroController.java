@@ -1,7 +1,9 @@
 package com.example.CatalogoDeLivros.controller;
 
 
+import com.example.CatalogoDeLivros.dto.ListarLivroResponseDtos;
 import com.example.CatalogoDeLivros.dto.LivroDto;
+import com.example.CatalogoDeLivros.dto.LivroResponseDto;
 import com.example.CatalogoDeLivros.excecoes.LivroNaoExiste;
 import com.example.CatalogoDeLivros.model.Livro;
 import com.example.CatalogoDeLivros.service.LivroService;
@@ -28,8 +30,8 @@ public class LivroController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Livro> buscar(@PathVariable UUID id){
-        Livro livro = service.buscar(id);
+    public ResponseEntity<LivroResponseDto> buscar(@PathVariable UUID id){
+        LivroResponseDto livro = service.buscar(id);
         return ResponseEntity.ok(livro);
     }
 
@@ -46,15 +48,9 @@ public class LivroController {
     }
 
     @GetMapping("listar")
-    public List<Livro> listar(){
-        return service.listar();
+    public ResponseEntity<List<ListarLivroResponseDtos>> listar(){
+        List<ListarLivroResponseDtos> listar = service.listar();
+        return ResponseEntity.ok(listar);
     }
-
-
-    @ExceptionHandler(LivroNaoExiste.class)
-    public ResponseEntity<String> livroNaoExiste(LivroNaoExiste livroNaoExiste){
-        return ResponseEntity.status(404).body(livroNaoExiste.getMessage());
-    }
-
 
 }
