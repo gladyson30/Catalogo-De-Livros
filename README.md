@@ -138,7 +138,7 @@ A API utiliza tratamento global de exceções com "@ControllerAdvice", retornand
 👨‍💻 Autor
 
 Desenvolvido por GLADYSON GABRIEL BARBOSA DE FREITAS
-
+Linkedin: www.linkedin.com/in/gladyson-gabriel30
 ---
 
 📌 Observação
